@@ -3,25 +3,24 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 class Custombutton extends StatelessWidget {
-  const Custombutton({super.key});
+  final String text;
+  final VoidCallback onPressed;
+
+  const Custombutton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {
-          // log
-          // ignore: avoid_print
-          log('login button tapped');
-        },
+        onTap: onPressed,
         child: Container(
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
               color: Colors.blue, borderRadius: BorderRadius.circular(20)),
-          child: const Center(
+          child: Center(
               child: Text(
-            'Login',
-            style: TextStyle(color: Colors.white),
+            text,
+            style: const TextStyle(color: Colors.white, fontSize: 18),
           )),
         ));
   }

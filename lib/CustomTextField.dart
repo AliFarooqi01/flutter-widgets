@@ -5,17 +5,20 @@ class Customtextfield extends StatelessWidget {
 
   final String text;
   final Icon icon;
+  final TextEditingController controller;
 
   const Customtextfield({
     super.key,
     this.ispass = false,
     required this.text,
     required this.icon,
+    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
         obscureText: ispass,
         cursorColor: Colors.lightGreen,
         decoration: InputDecoration(
